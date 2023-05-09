@@ -13,6 +13,13 @@ function playerPicker() {
     return player
 }
 
+// global score
+
+
+let playerScore = 0
+let computerScore = 0
+
+
 
 function judge() {
 //    let playerWeapon = prompt('choose a weapon')
@@ -20,20 +27,24 @@ function judge() {
 //    let weapons = ['Rock', 'Paper', 'Scissors'];
 //    let weapon = weapons[Math.floor(Math.random()*weapons.length)];
 
+
+
     const computerChoice = picker()
     const playerWeapon = playerPicker()
 
     if (playerWeapon === computerChoice) {
-        alert('the computer chose ' + computerChoice + ', tie!')
+        alert('the computer chose ' + computerChoice + ', the round is a tie!')
         return 'Tie'
     }
     else if ((playerWeapon === 'Rock' && computerChoice === 'Scissors') || (playerWeapon === 'Paper' && computerChoice === 'Rock') || (playerWeapon === 'Scissors' && computerChoice === 'Paper')) {
-        alert('the computer chose ' + computerChoice + ', you win!')
+        alert('the computer chose ' + computerChoice + ', you win the round!')
         return 'Player'
+        ++playerScore
     }
     else if ((playerWeapon === 'Rock' && computerChoice === 'Paper') || (playerWeapon === 'Paper' && computerChoice === 'Scissors') || (playerWeapon === 'Scissors' && computerChoice === 'Rock')) {
-        alert('the computer chose ' + computerChoice + ', you lose!')
+        alert('the computer chose ' + computerChoice + ', you lose the round!')
         return 'Computer'
+        ++computerScore
     }
     else {
         alert('game broken')
@@ -47,7 +58,7 @@ function game() {
 //   let computerScore = 0
     for (let i = 1; i <= 5; i++) {
     judge()
-    console.log(i)
+    console.log(`${i} rounds   ${playerScore} player score   ${computerScore} computer score `)
     }
 }
 
