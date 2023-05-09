@@ -1,32 +1,39 @@
 //computer picker
 
-
-//let weapons = ['Rock', 'Paper', 'Scissors'];
-//let weapon = weapons[Math.floor(Math.random()*weapons.length)];
-//alert('The computer chose:' + weapon);
-
-//player picker
-
-//function player(){
-//    let playerWeapon = prompt('choose a weapon')
-//    alert('player chose ' + playerWeapon)
-//}
-// decider
-
-function judge() {
-    let playerWeapon = prompt('choose a weapon')
-
+function picker() {
     let weapons = ['Rock', 'Paper', 'Scissors'];
     let weapon = weapons[Math.floor(Math.random()*weapons.length)];
+    return weapon
+}
 
-    if (playerWeapon === weapon) {
-        alert('the computer chose ' + weapon + ', tie!')
+// player picker
+
+function playerPicker() {
+    let player = prompt('choose a weapon')
+    return player
+}
+
+
+function judge() {
+//    let playerWeapon = prompt('choose a weapon')
+
+//    let weapons = ['Rock', 'Paper', 'Scissors'];
+//    let weapon = weapons[Math.floor(Math.random()*weapons.length)];
+
+    const computerChoice = picker()
+    const playerWeapon = playerPicker()
+
+    if (playerWeapon === computerChoice) {
+        alert('the computer chose ' + computerChoice + ', tie!')
+        return 'Tie'
     }
-    else if ((playerWeapon === 'Rock' && weapon === 'Scissors') || (playerWeapon === 'Paper' && weapon === 'Rock') || (playerWeapon === 'Scissors' && weapon === 'Paper')) {
-        alert('the computer chose ' + weapon + ', you win!')
+    else if ((playerWeapon === 'Rock' && computerChoice === 'Scissors') || (playerWeapon === 'Paper' && computerChoice === 'Rock') || (playerWeapon === 'Scissors' && computerChoice === 'Paper')) {
+        alert('the computer chose ' + computerChoice + ', you win!')
+        return 'Player'
     }
-    else if ((playerWeapon === 'Rock' && weapon === 'Paper') || (playerWeapon === 'Paper' && weapon === 'Scissors') || (playerWeapon === 'Scissors' && weapon === 'Rock')) {
-        alert('the computer chose ' + weapon + ', you lose!')
+    else if ((playerWeapon === 'Rock' && computerChoice === 'Paper') || (playerWeapon === 'Paper' && computerChoice === 'Scissors') || (playerWeapon === 'Scissors' && computerChoice === 'Rock')) {
+        alert('the computer chose ' + computerChoice + ', you lose!')
+        return 'Computer'
     }
     else {
         alert('game broken')
@@ -36,16 +43,18 @@ function judge() {
 // structure
 
 function game() {
+//    let playerScore = 0
+//   let computerScore = 0
     for (let i = 1; i <= 5; i++) {
     judge()
     console.log(i)
     }
 }
-//function play() {
-//    player()
-//    judge()
-//}
 
+
+//    if (judge(playerWeapon, weapon) == 'Player') {
+//        ++playerScore
+//    }
 
 
 
